@@ -1,149 +1,42 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="utf-8">
-  <link href="images/a6dfbbd55_Screenshot_20260515-022106_GooglePlayStore.jpg" rel="icon" type="image/svg+xml">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
-  <meta content="yes" name="apple-mobile-web-app-capable">
-  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
-  <meta content="#000f2e" name="theme-color">
-  <link href="js/manifest.json" rel="manifest">
-  <title>
-   AXS
-  </title>
-  <script crossorigin="" src="js/index-Dzz_ilae.js" type="module">
-  </script>
-  <link crossorigin="" href="css/index-BNPbQ385.css" rel="stylesheet">
-  <script type="module">
-   if (window.self === window.top) {
-  let lastPath = "";
-  function getPageNameFromPath(path) {
-    const segments = path.split("/").filter(Boolean);
-    return segments[0] || null;
-  }
-  function trackPageView() {
-    const path = window.location.pathname;
-    if (path === lastPath) return;
-    lastPath = path;
-    const pageName = getPageNameFromPath(path) || "home";
-    const appId = "6a067b9fd91eaef6ddec8ba6";
-    if (!appId) return;
-    fetch(`/api/app-logs/${appId}/log-user-in-app/${pageName}`, {
-      method: "POST",
-    }).catch(() => {});
-  }
-  const originalPushState = history.pushState.bind(history);
-  history.pushState = function (...args) {
-    originalPushState(...args);
-    trackPageView();
-  };
-  const originalReplaceState = history.replaceState.bind(history);
-  history.replaceState = function (...args) {
-    originalReplaceState(...args);
-    trackPageView();
-  };
-  window.addEventListener("popstate", trackPageView);
-  trackPageView();
-}
-  </script>
-  <meta content="Your ultimate companion for event discovery and seamless ticket management." name="description">
-  <meta content="AXS " property="og:title">
-  <meta content="Your ultimate companion for event discovery and seamless ticket management." property="og:description">
-  <meta content="images/a6dfbbd55_Screenshot_20260515-022106_GooglePlayStore_1.jpg" property="og:image">
-  <meta content="https://orgmasters.base44.app" property="og:url">
-  <meta content="website" property="og:type">
-  <meta content="AXS " property="og:site_name">
-  <meta content="AXS " name="twitter:title">
-  <meta content="Your ultimate companion for event discovery and seamless ticket management." name="twitter:description">
-  <meta content="images/a6dfbbd55_Screenshot_20260515-022106_GooglePlayStore_1.jpg" name="twitter:image">
-  <meta content="summary_large_image" name="twitter:card">
-  <meta content="https://orgmasters.base44.app" name="twitter:url">
-  <meta content="yes" name="mobile-web-app-capable">
-  <meta content="AXS " name="apple-mobile-web-app-title">
-  <link href="https://orgmasters.base44.app" rel="canonical">
-  <script data-seo-source="builder" type="application/ld+json">
-   {"name": "AXS ", "@context": "https://schema.org", "@type": "WebSite", "url": "https://orgmasters.base44.app"}
-  </script>
-  <script data-seo-source="builder" type="application/ld+json">
-   {"name": "AXS ", "logo": "https://media.base44.com/images/public/6a067b9fd91eaef6ddec8ba6/a6dfbbd55_Screenshot_20260515-022106_GooglePlayStore.jpg", "@context": "https://schema.org", "@type": "Organization", "url": "https://orgmasters.base44.app"}
-  </script>
-  <script async="true" data-app-id="6a067b9fd91eaef6ddec8ba6" data-platform-url="https://app.base44.com" src="js/badge.js">
-  </script>
- </head>
- <body>
-  <div id="root">
-   <div data-seo-source="builder" id="seo-snapshot" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000f2e" />
+    <meta name="description" content="Your ultimate companion for event discovery and seamless ticket management." />
+    <link rel="stylesheet" href="/index-BNPbQ385.css" />
+    <title>AXS — Event tickets made simple</title>
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-width: 320px; background: #f5f7fb; color: #000f2e; }
+      main { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 20px; }
+      .shell { width: min(960px, 100%); overflow: hidden; border-radius: 24px; background: #fff; box-shadow: 0 20px 60px rgba(0, 15, 46, .12); }
+      header { padding: 64px clamp(28px, 8vw, 88px); background: #000f2e; color: #fff; }
+      .eyebrow { margin: 0 0 16px; color: #54d6c7; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+      h1 { margin: 0; font-size: clamp(42px, 8vw, 76px); line-height: .98; letter-spacing: -.05em; }
+      .intro { max-width: 560px; margin: 24px 0 0; color: #dbe4f2; font-size: 18px; line-height: 1.6; }
+      .content { display: flex; flex-wrap: wrap; gap: 20px; padding: 32px clamp(28px, 8vw, 88px) 40px; }
+      .content a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #54d6c7; color: #000f2e; font-weight: 700; text-decoration: none; }
+      .content a:hover { background: #39b8aa; }
+      .note { flex-basis: 100%; margin: 4px 0 0; color: #52617a; line-height: 1.6; }
+    </style>
+  </head>
+  <body>
     <main>
-     <header>
-      <h1>
-       AXS
-      </h1>
-      <p>
-       Your ultimate companion for event discovery and seamless ticket management.
-      </p>
-     </header>
-     <nav aria-label="Pages">
-      <h2>
-       Pages
-      </h2>
-      <ul>
-       <li>
-        <a href="/profile">
-         Profile Route
-        </a>
-        — Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/admin">
-         Admin Route
-        </a>
-        — Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/tickets/create">
-         Create Ticket Route
-        </a>
-        — Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/claim">
-         Ticket Claim
-        </a>
-        — Ticket Claim on AXS . Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/signin">
-         Sign In
-        </a>
-        — Sign In on AXS . Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/checkout">
-         Checkout
-        </a>
-        — Checkout on AXS . Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/checkout/success">
-         Ticket Confirmation
-        </a>
-        — Ticket Confirmation on AXS . Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/manage-tickets">
-         Manage Tickets
-        </a>
-        — Manage Tickets on AXS . Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-       <li>
-        <a href="/order-receipt">
-         Order Receipt
-        </a>
-        — Order Receipt on AXS . Your ultimate companion for event discovery and seamless ticket management.
-       </li>
-      </ul>
-     </nav>
+      <section class="shell" aria-labelledby="page-title">
+        <header>
+          <p class="eyebrow">AXS</p>
+          <h1 id="page-title">Find your next event.</h1>
+          <p class="intro">Your ultimate companion for event discovery and seamless ticket management.</p>
+        </header>
+        <div class="content">
+          <a href="/profile">Open profile</a>
+          <a href="/manage-tickets">Manage tickets</a>
+          <p class="note">Choose a destination above to continue.</p>
+        </div>
+      </section>
     </main>
-   </div>
-  </div>
- 
-
-</body></html>
+  </body>
+</html>
